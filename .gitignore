@@ -1,0 +1,6 @@
+content-manager-business/target/
+content-manager-consumer/target/
+content-manager-model/target/
+content-manager-webapp/target/
+.project
+.settings/
