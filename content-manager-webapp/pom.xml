@@ -14,6 +14,7 @@
 	<groupId>org..apache.maven.archetypes</groupId>
 	<artifactId>content-manager-webapp</artifactId>
 	<packaging>war</packaging>
+	
 	<name>content-manager-webapp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
@@ -43,6 +44,18 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
 		</dependency>
 
 		<dependency>

@@ -1,4 +1,4 @@
-package com.mlk.cmis;
+package com.mlk.cmis.service.impl;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,16 +17,12 @@ import org.apache.chemistry.opencmis.commons.exceptions.CmisContentAlreadyExists
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CmisCreateObjectService {
-	private static final Logger LOGGER = LoggerFactory.getLogger(CmisCreateObjectService.class);
+import com.mlk.cmis.service.CmisCreateObjectService;
 
-	/**
-	 * 
-	 * @param session
-	 * @param parent
-	 * @param properties
-	 * @return
-	 */
+public class CmisCreateObjectServiceImpl implements CmisCreateObjectService{
+	private static final Logger LOGGER = LoggerFactory.getLogger(CmisCreateObjectServiceImpl.class);
+
+	@Override
 	public Folder createFolder(Session session, Folder parent, Map<String, String> properties) {
 		Folder folder = null;
 		if (parent == null) {
@@ -44,16 +40,7 @@ public class CmisCreateObjectService {
 		return folder;
 	}
 
-	/**
-	 * 
-	 * @param session
-	 * @param parent
-	 * @param file
-	 * @param properties
-	 * @param versioningState
-	 * @return
-	 * @throws FileNotFoundException
-	 */
+	@Override
 	public Document createDocument(Session session, Folder parent, File file, Map<String, String> properties, VersioningState versioningState)
 			throws FileNotFoundException {
 		
@@ -79,4 +66,5 @@ public class CmisCreateObjectService {
 		}
 		return document;
 	}
+
 }

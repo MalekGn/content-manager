@@ -1,4 +1,4 @@
-package com.mlk.cmis;
+package com.mlk.cmis.service.impl;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -11,17 +11,12 @@ import org.apache.chemistry.opencmis.commons.data.ContentStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CmisDownloadService {
-	private static final Logger LOGGER = LoggerFactory.getLogger(CmisDownloadService.class);
-	
-	/**
-	 * download document by uuid <br/>
-	 * <b>targetDirectory</b> should contain the file name and extension
-	 * 
-	 * @param session
-	 * @param uuid
-	 * @param targetDirectory
-	 */
+import com.mlk.cmis.service.CmisDownloadService;
+
+public class CmisDownloadServiceImpl implements CmisDownloadService {
+	private static final Logger LOGGER = LoggerFactory.getLogger(CmisDownloadServiceImpl.class);
+
+	@Override
 	public void downloadDocumentByUUID(Session session, String uuid, String targetDirectory) {
 
 		Document document = (Document) session.getObject(uuid);
@@ -40,14 +35,8 @@ public class CmisDownloadService {
 			LOGGER.error(e.getMessage(), e);
 		}
 	}
-	
-	/**
-	 * download document by directory
-	 * 
-	 * @param session
-	 * @param sourceDirectory
-	 * @param targetDirectory
-	 */
+
+	@Override
 	public void downloadDocumentByDirectory(Session session, String sourceDirectory, String targetDirectory) {
 
 		Document document = (Document) session.getObjectByPath(sourceDirectory);
